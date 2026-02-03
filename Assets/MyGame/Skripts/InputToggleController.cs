@@ -35,6 +35,16 @@ public class InputToggleController : MonoBehaviour
             RenderGrid();                     // Raster UI rendern
             RenderInputLine();                // Eingabezeile UI rendern
         }
+
+        // -----------------------------
+        // Feature 9: Reset G
+        // -----------------------------
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            ResetGridAndInput();              // Datenmodell zurücksetzen
+            RenderGrid();                     // UI aktualisieren
+            RenderInputLine();                // UI aktualisieren
+        }
     }
 
     // -----------------------------
@@ -71,6 +81,27 @@ public class InputToggleController : MonoBehaviour
                     gridImages[index].color = dataModel.grid[row, col] ? Color.white : Color.black;
                 }
             }
+        }
+    }
+
+    // -----------------------------
+    // Feature 9: Datenmodell zurücksetzen
+    // -----------------------------
+    void ResetGridAndInput()
+    {
+        // Raster leeren
+        for (int row = 0; row < rows; row++)
+        {
+            for (int col = 0; col < cols; col++)
+            {
+                dataModel.grid[row, col] = false;
+            }
+        }
+
+        // Eingabezeile leeren
+        for (int i = 0; i < dataModel.inputRow.Length; i++)
+        {
+            dataModel.inputRow[i] = false;
         }
     }
 }
