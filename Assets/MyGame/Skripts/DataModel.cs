@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class DataModel : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    // Eingabezeile (Q6 links bis Q0 rechts)
+    public bool[] inputRow = new bool[7];
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Raster: 10 Zeilen, 7 Spalten
+    public bool[,] grid = new bool[10, 7];
 }
